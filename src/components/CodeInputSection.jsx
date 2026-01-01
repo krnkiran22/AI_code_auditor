@@ -104,12 +104,12 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
         </div>
 
         {/* Card Container */}
-        <div className="bg-white rounded-2xl shadow-elevated p-6 md:p-8">
+        <div className="bg-white rounded-2xl shadow-elevated p-4 sm:p-6 md:p-8">
           {/* Tab Buttons */}
-          <div className="flex space-x-2 mb-6 bg-gray-100 p-1 rounded-lg">
+          <div className="flex gap-2 mb-6 bg-gray-100 p-1 rounded-lg">
             <button
               onClick={() => setActiveTab('paste')}
-              className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all duration-200 ${
+              className={`flex-1 flex items-center justify-center space-x-2 py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-200 text-sm sm:text-base ${
                 activeTab === 'paste'
                   ? 'bg-white text-secondary shadow-md'
                   : 'text-textSecondary hover:text-primary'
@@ -117,12 +117,13 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
               aria-label="Paste code tab"
               aria-pressed={activeTab === 'paste'}
             >
-              <CodeIcon className="w-5 h-5" />
-              <span>Paste Code</span>
+              <CodeIcon className="w-5 h-5 flex-shrink-0" />
+              <span className="hidden xs:inline">Paste Code</span>
+              <span className="xs:hidden">Paste</span>
             </button>
             <button
               onClick={() => setActiveTab('upload')}
-              className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all duration-200 ${
+              className={`flex-1 flex items-center justify-center space-x-2 py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-200 text-sm sm:text-base ${
                 activeTab === 'upload'
                   ? 'bg-white text-secondary shadow-md'
                   : 'text-textSecondary hover:text-primary'
@@ -130,8 +131,9 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
               aria-label="Upload file tab"
               aria-pressed={activeTab === 'upload'}
             >
-              <UploadIcon className="w-5 h-5" />
-              <span>Upload File</span>
+              <UploadIcon className="w-5 h-5 flex-shrink-0" />
+              <span className="hidden xs:inline">Upload File</span>
+              <span className="xs:hidden">Upload</span>
             </button>
           </div>
 
@@ -143,7 +145,7 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
                   value={codeInput}
                   onChange={(e) => setCodeInput(e.target.value)}
                   placeholder="Paste your code here...&#10;&#10;Example:&#10;function login(username, password) {&#10;  const query = `SELECT * FROM users WHERE username='${username}' AND password='${password}'`;&#10;  return db.execute(query);&#10;}"
-                  className="w-full h-64 md:h-80 px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-200 font-mono text-sm resize-none"
+                  className="w-full h-56 sm:h-64 md:h-80 px-3 sm:px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-200 font-mono text-xs sm:text-sm resize-none"
                   aria-label="Code input textarea"
                 />
                 <div className="flex justify-between items-center mt-2 text-sm text-textSecondary">
@@ -188,14 +190,14 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
                     onDragLeave={handleDrag}
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
-                    className={`border-2 border-dashed rounded-lg p-12 text-center transition-all duration-200 ${
+                    className={`border-2 border-dashed rounded-lg p-8 sm:p-12 text-center transition-all duration-200 ${
                       dragActive
                         ? 'border-secondary bg-blue-50'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
                   >
-                    <UploadIcon className="w-12 h-12 text-textSecondary mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-primary mb-2">
+                    <UploadIcon className="w-10 h-10 sm:w-12 sm:h-12 text-textSecondary mx-auto mb-3 sm:mb-4" />
+                    <h3 className="text-base sm:text-lg font-semibold text-primary mb-2">
                       Drop your file here
                     </h3>
                     <p className="text-textSecondary mb-4">
@@ -211,11 +213,11 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
                     />
                     <label
                       htmlFor="file-upload"
-                      className="inline-block px-6 py-3 bg-secondary text-white rounded-lg font-medium cursor-pointer hover:bg-blue-600 transition-colors"
+                      className="inline-block px-5 sm:px-6 py-2.5 sm:py-3 bg-secondary text-white rounded-lg font-medium cursor-pointer hover:bg-blue-600 transition-colors text-sm sm:text-base"
                     >
                       Choose File
                     </label>
-                    <p className="text-xs text-textSecondary mt-4">
+                    <p className="text-xs text-textSecondary mt-3 sm:mt-4 px-2">
                       Supported: {ALLOWED_EXTENSIONS.join(', ')} • Max 50KB
                     </p>
                   </div>
@@ -226,8 +228,8 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
 
           {/* Error Message */}
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-danger text-sm font-medium">{error}</p>
+            <div className="mb-6 p-3 sm:p-4 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-danger text-xs sm:text-sm font-medium">{error}</p>
             </div>
           )}
 
@@ -235,7 +237,7 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
           <button
             onClick={handleAnalyzeClick}
             disabled={isAnalyzing || !codeInput.trim()}
-            className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center space-x-2 ${
+            className={`w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-lg font-semibold text-white transition-all duration-200 flex items-center justify-center space-x-2 text-sm sm:text-base ${
               isAnalyzing || !codeInput.trim()
                 ? 'bg-gray-400 cursor-not-allowed'
                 : 'bg-accent hover:bg-emerald-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
@@ -257,7 +259,7 @@ const CodeInputSection = ({ onAnalyze, isAnalyzing }) => {
           </button>
 
           {/* Example Code Snippet Link */}
-          <div className="mt-4 text-center">
+          <div className="mt-4 text-center px-2">
             <button
               onClick={() => {
                 setActiveTab('paste');

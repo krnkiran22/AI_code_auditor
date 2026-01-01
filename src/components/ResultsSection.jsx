@@ -110,14 +110,14 @@ Date: ${new Date().toLocaleString()}
         </div>
 
         {/* Actions Bar */}
-        <div className="mt-8 bg-white rounded-xl shadow-md p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-8 bg-white rounded-xl shadow-md p-4 sm:p-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           {/* Filter */}
           <div className="flex items-center space-x-3 w-full md:w-auto">
-            <FilterIcon className="w-5 h-5 text-textSecondary" />
+            <FilterIcon className="w-5 h-5 text-textSecondary flex-shrink-0" />
             <select
               value={severityFilter}
               onChange={(e) => setSeverityFilter(e.target.value)}
-              className="flex-1 md:flex-initial px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all cursor-pointer"
+              className="flex-1 md:flex-initial px-4 py-3 text-sm md:text-base border-2 border-gray-200 rounded-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all cursor-pointer"
               aria-label="Filter by severity"
             >
               <option value="all">All Issues ({issues.length})</option>
@@ -129,10 +129,10 @@ Date: ${new Date().toLocaleString()}
           </div>
 
           {/* Export Buttons */}
-          <div className="flex space-x-3 w-full md:w-auto">
+          <div className="flex gap-3 w-full md:w-auto">
             <button
               onClick={handleCopyReport}
-              className="flex-1 md:flex-initial flex items-center justify-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-primary rounded-lg font-medium transition-colors"
+              className="flex-1 md:flex-initial flex items-center justify-center space-x-2 px-5 py-3 bg-gray-100 hover:bg-gray-200 text-primary rounded-lg font-medium transition-colors text-sm md:text-base"
               aria-label="Copy report to clipboard"
             >
               {copied ? (
@@ -150,7 +150,7 @@ Date: ${new Date().toLocaleString()}
 
             <button
               onClick={handleDownloadReport}
-              className="flex-1 md:flex-initial flex items-center justify-center space-x-2 px-4 py-2 bg-secondary hover:bg-blue-600 text-white rounded-lg font-medium transition-colors shadow-md"
+              className="flex-1 md:flex-initial flex items-center justify-center space-x-2 px-5 py-3 bg-secondary hover:bg-blue-600 text-white rounded-lg font-medium transition-colors shadow-md text-sm md:text-base"
               aria-label="Download report"
             >
               <DownloadIcon className="w-5 h-5" />
@@ -160,14 +160,14 @@ Date: ${new Date().toLocaleString()}
         </div>
 
         {/* Issues List */}
-        <div className="mt-8">
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold text-primary">
+        <div className="mt-10 sm:mt-12">
+          <div className="mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-primary">
               {severityFilter === 'all' 
                 ? 'All Issues' 
                 : `${severityFilter.charAt(0).toUpperCase() + severityFilter.slice(1)} Severity Issues`}
             </h3>
-            <p className="text-textSecondary mt-1">
+            <p className="text-sm sm:text-base text-textSecondary mt-1">
               Showing {filteredIssues.length} of {issues.length} issues
             </p>
           </div>

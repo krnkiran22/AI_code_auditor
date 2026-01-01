@@ -14,8 +14,8 @@ const SecurityScoreCard = ({ score, assessment }) => {
   const offset = circumference - (score / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-2xl shadow-elevated p-6 md:p-8 animate-fadeIn">
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+    <div className="bg-white rounded-2xl shadow-elevated p-4 sm:p-6 md:p-8 animate-fadeIn">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
         {/* Circular Progress */}
         <div className="relative flex-shrink-0">
           <svg className="transform -rotate-90 w-40 h-40">
@@ -70,7 +70,7 @@ const SecurityScoreCard = ({ score, assessment }) => {
           </p>
 
           {/* Status Indicators */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <div className="flex items-start space-x-2">
               {score >= 80 ? (
                 <CheckmarkIcon className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />

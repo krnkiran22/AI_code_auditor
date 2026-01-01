@@ -13,7 +13,7 @@ function App() {
   const [analysisResults, setAnalysisResults] = useState(null);
   const [error, setError] = useState(null);
 
-  const handleAnalyze = async (codeInput) => {
+  const handleAnalyze = async (codeInput: string) => {
     setIsAnalyzing(true);
     setError(null);
     setAnalysisResults(null);
@@ -30,7 +30,7 @@ function App() {
         }
       }, 100);
     } catch (err) {
-      setError(err.message || 'An error occurred during analysis');
+      setError(err instanceof Error ? err.message : 'An error occurred during analysis');
     } finally {
       setIsAnalyzing(false);
     }

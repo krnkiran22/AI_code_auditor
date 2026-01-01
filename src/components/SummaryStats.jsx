@@ -51,26 +51,26 @@ const SummaryStats = ({ summary }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
             <div
               key={stat.label}
-              className={`${stat.bgColor} rounded-xl p-6 border-2 ${stat.borderColor} transition-all duration-200 hover:shadow-lg hover:-translate-y-1 cursor-pointer`}
+              className={`${stat.bgColor} rounded-xl p-4 sm:p-6 border-2 ${stat.borderColor} transition-all duration-200 hover:shadow-lg hover:-translate-y-1 cursor-pointer`}
             >
-              <div className="flex items-center justify-between mb-3">
-                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-md`}>
-                  <Icon className="w-5 h-5 text-white" />
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-md`}>
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div className={`text-3xl font-bold ${stat.color}`}>
+                <div className={`text-2xl sm:text-3xl font-bold ${stat.color}`}>
                   {stat.count}
                 </div>
               </div>
-              <div className={`text-sm font-semibold ${stat.color} uppercase tracking-wide`}>
+              <div className={`text-xs sm:text-sm font-semibold ${stat.color} uppercase tracking-wide`}>
                 {stat.label}
               </div>
-              <div className="mt-2 text-xs text-textSecondary">
+              <div className="mt-1 sm:mt-2 text-xs text-textSecondary">
                 {stat.count === 0 ? 'No issues' : stat.count === 1 ? '1 issue' : `${stat.count} issues`}
               </div>
             </div>

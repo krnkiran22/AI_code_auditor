@@ -46,16 +46,16 @@ const IssueCard = ({ issue, index }) => {
 
   return (
     <div
-      className={`${config.bgColor} border-l-4 ${config.borderColor} rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-4 overflow-hidden`}
+      className={`${config.bgColor} border-l-4 ${config.borderColor} rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-5 sm:mb-6 overflow-hidden`}
     >
       {/* Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full px-6 py-4 flex items-center justify-between hover:bg-white/50 transition-colors"
+        className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between hover:bg-white/50 transition-colors"
         aria-expanded={isExpanded}
         aria-label={`Toggle issue details for ${issue.title}`}
       >
-        <div className="flex items-center space-x-4 flex-1 text-left">
+        <div className="flex items-center space-x-3 sm:space-x-4 flex-1 text-left">
           {/* Icon */}
           <div className={`w-10 h-10 rounded-lg ${config.badgeBg} flex items-center justify-center flex-shrink-0`}>
             <Icon className="w-5 h-5 text-white" />
@@ -63,17 +63,17 @@ const IssueCard = ({ issue, index }) => {
 
           {/* Title and Badge */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-3 mb-1">
-              <span className={`px-3 py-1 ${config.badgeBg} text-white text-xs font-bold rounded-full uppercase`}>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+              <span className={`px-2.5 sm:px-3 py-1 ${config.badgeBg} text-white text-xs font-bold rounded-full uppercase`}>
                 {issue.severity}
               </span>
               {issue.cweId && (
-                <span className="px-3 py-1 bg-gray-200 text-gray-700 text-xs font-semibold rounded-full">
+                <span className="px-2.5 sm:px-3 py-1 bg-gray-200 text-gray-700 text-xs font-semibold rounded-full">
                   {issue.cweId}
                 </span>
               )}
             </div>
-            <h4 className={`text-lg font-semibold ${config.color} truncate`}>
+            <h4 className={`text-base sm:text-lg font-semibold ${config.color} line-clamp-2 sm:truncate`}>
               {issue.title}
             </h4>
           </div>
@@ -96,7 +96,7 @@ const IssueCard = ({ issue, index }) => {
 
       {/* Expanded Content */}
       {isExpanded && (
-        <div className="px-6 pb-6 space-y-4 animate-fadeIn">
+        <div className="px-4 sm:px-6 pb-5 sm:pb-6 space-y-4 sm:space-y-5 animate-fadeIn">
           <div className="h-px bg-gray-300"></div>
 
           {/* Description */}
