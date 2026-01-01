@@ -46,7 +46,7 @@ const IssueCard = ({ issue, index }) => {
 
   return (
     <div
-      className={`${config.bgColor} border-l-4 ${config.borderColor} rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-8 overflow-hidden`}
+      className={`${config.bgColor} border-l-4 ${config.borderColor} rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-5 overflow-hidden`}
     >
       {/* Header */}
       <button
@@ -170,7 +170,7 @@ const IssuesList = ({ issues }) => {
   }
 
   return (
-    <div className="space-y-0 animate-fadeIn">
+    <div className="animate-fadeIn">
       {issues.map((issue, index) => (
         <IssueCard key={index} issue={issue} index={index} />
       ))}
