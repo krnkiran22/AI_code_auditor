@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import CodeInputSection from './components/CodeInputSection';
 import ResultsSection from './components/ResultsSection';
 import Footer from './components/Footer';
+import SplashCursor from './components/SplashCursor';
 import { analyzeCode } from './services/aiService';
 import { SpinnerIcon } from './components/Icons';
 
@@ -36,9 +37,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1">
+    <>
+      <div className="min-h-screen flex flex-col relative">
+        <Header />
+        <main className="flex-1 pt-20">
         <Hero />
         <CodeInputSection onAnalyze={handleAnalyze} isAnalyzing={isAnalyzing} />
         
@@ -95,7 +97,9 @@ function App() {
         )}
       </main>
       <Footer />
-    </div>
+      </div>
+      <SplashCursor />
+    </>
   );
 }
 

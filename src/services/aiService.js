@@ -58,17 +58,45 @@ Respond in JSON format:
       response_format: { type: "json_object" },
     });
 
+    console.log("Full API Response:", response);
+    
     const content = response.choices[0].message.content;
+    console.log("Content from AI:", content);
+    
     const result = JSON.parse(content);
+    console.log("Parsed Result:", result);
 
-    // Validate response structure
-    if (!result.securityScore || !result.issues || !result.summary) {
-      throw new Error("Invalid response format from AI");
+    // Validate and normalize response structure
+    if (!result.securityScore && result.securityScore !== 0) {
+      console.error("Missing securityScore in response:", result);
+      throw new Error("Invalid response format from AI: missing securityScore");
+    }
+    
+    if (!result.issues || !Array.isArray(result.issues)) {
+      console.error("Missing or invalid issues array in response:", result);
+      throw new Error("Invalid response format from AI: missing issues array");
+    }
+    
+    if (!result.summary) {
+      console.error("Missing summary in response:", result);
+      // Auto-generate summary from issues if missing
+      result.summary = {
+        critical: result.issues.filter(i => i.severity === 'critical').length,
+        high: result.issues.filter(i => i.severity === 'high').length,
+        medium: result.issues.filter(i => i.severity === 'medium').length,
+        low: result.issues.filter(i => i.severity === 'low').length,
+      };
+      console.log("Auto-generated summary:", result.summary);
     }
 
     return result;
   } catch (error) {
     console.error("Error analyzing code:", error);
+    console.error("Error details:", {
+      message: error.message,
+      stack: error.stack,
+      response: error.response
+    });
 
     // Handle specific error cases
     if (error.message.includes("API key")) {
@@ -83,7 +111,8 @@ Respond in JSON format:
       throw new Error("Rate limit exceeded. Please try again in a few moments.");
     }
 
-    throw new Error("Failed to analyze code. Please try again later.");
+    // Pass through more specific error information
+    throw new Error(`Failed to analyze code: ${error.message}`);
   }
 };
 
