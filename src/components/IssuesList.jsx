@@ -46,7 +46,7 @@ const IssueCard = ({ issue, index }) => {
 
   return (
     <div
-      className={`${config.bgColor} border-l-4 ${config.borderColor} rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-5 sm:mb-6 overflow-hidden`}
+      className={`${config.bgColor} border-l-4 ${config.borderColor} rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-8 overflow-hidden`}
     >
       {/* Header */}
       <button
