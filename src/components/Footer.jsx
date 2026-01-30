@@ -14,8 +14,8 @@ const Footer = () => {
                 <SecurityShieldIcon className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">SecureCode AI</h3>
-                <p className="text-sm text-gray-400">Security Auditor</p>
+                <h3 className="text-xl font-bold">SECURE CODE ANALYZER</h3>
+                <p className="text-sm text-gray-400">AI-Powered Security Analysis</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-md">
@@ -110,7 +110,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} SecureCode AI. All rights reserved.
+            © {currentYear} SECURE CODE ANALYZER. All rights reserved.
           </p>
           
           <div className="flex items-center space-x-6">
@@ -129,7 +129,7 @@ const Footer = () => {
         {/* Disclaimer */}
         <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
           <p className="text-xs text-gray-400 leading-relaxed">
-            <strong className="text-yellow-500">Disclaimer:</strong> SecureCode AI is an automated tool 
+            <strong className="text-yellow-500">Disclaimer:</strong> SECURE CODE ANALYZER is an automated tool 
             and should not be used as the sole means of security assessment. Always conduct thorough 
             manual security reviews and testing before deploying code to production.
           </p>

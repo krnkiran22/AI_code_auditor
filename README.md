@@ -1,8 +1,8 @@
-# AI Code Auditor - SecureCode AI
+# SECURE CODE ANALYZER
 
 🔒 **AI-Powered Code Security Auditor** - A professional-grade web application that analyzes code for security vulnerabilities, bugs, and compliance issues using advanced AI technology.
 
-![SecureCode AI](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=400&fit=crop&q=80)
+![SECURE CODE ANALYZER](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=400&fit=crop&q=80)
 
 ## 🚀 Features
 
@@ -33,7 +33,7 @@
 
 1. **Navigate to the project directory**
    ```bash
-   cd ai_code_editor
+   cd secure-code-analyzer
    ```
 
 2. **Install dependencies**
@@ -189,7 +189,7 @@ This project is licensed under the MIT License.
 
 ## ⚠️ Disclaimer
 
-SecureCode AI is an automated tool and should not be used as the sole means of security assessment. Always conduct thorough manual security reviews and penetration testing before deploying code to production.
+SECURE CODE ANALYZER is an automated tool and should not be used as the sole means of security assessment. Always conduct thorough manual security reviews and penetration testing before deploying code to production.
 
 ## 🙏 Acknowledgments
 

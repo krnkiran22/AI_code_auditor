@@ -12,9 +12,9 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
-                SecureCode AI
+                SECURE CODE ANALYZER
               </h1>
-              <p className="text-xs text-emerald-600 font-semibold">Security Auditor</p>
+              <p className="text-xs text-emerald-600 font-semibold">AI-Powered Security Analysis</p>
             </div>
           </div>
 
